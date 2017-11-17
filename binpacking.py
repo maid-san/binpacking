@@ -79,7 +79,11 @@ def binpacking(a):
 
 start = time.time()
 B = 8
-s = [3,3,3]
+s = []
+for i in range(1, 5):
+    r = int(np.random.normal(4, 2))
+    r = 1 if r < 1 else B if r > B else r
+    s.append(r)
 
 a = np.array([[]])
 
