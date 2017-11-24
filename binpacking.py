@@ -3,6 +3,7 @@ import numpy as np
 import argparse
 from random import *
 from decimal import *
+from distribution import dis_1
 from problem import binpacking_dual, zero_one_knapsack, binpacking
 
 start = time.time()
@@ -21,9 +22,7 @@ NumberOfItem = args.nitem
 
 item_list = []
 for i in range(1, NumberOfItem):
-    r = int(randint(1, BinSize))
-
-    r = 1 if r < 1 else BinSize if r > BinSize else r
+    r = dis_1()
     item_list.append(r)
 
 print("Bin Size: " + str(BinSize))
