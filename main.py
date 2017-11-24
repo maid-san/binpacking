@@ -3,7 +3,7 @@ import numpy as np
 import argparse
 from random import *
 from decimal import *
-from distribution import dis_1
+from distribution import *
 from problem import binpacking_dual, zero_one_knapsack, binpacking
 
 start = time.time()
@@ -20,16 +20,16 @@ NumberOfItem = args.nitem
 
 item_list = []
 for i in range(1, NumberOfItem):
-    r = dis_1()
+    r = dis_2()
     item_list.append(r)
 
 print("Bin Size: " + str(BinSize))
-print("Number of Item: " + str(NumberOfItem))
 print("Item List: " + str(item_list))
 
 i = 1
 a = np.array([[]])
 while True:
+    print("# TEMP-" + str(i))
     y = binpacking_dual(BinSize, item_list, a)
     mat = zero_one_knapsack(BinSize, item_list, y)
 
@@ -38,10 +38,16 @@ while True:
     else:
         break
 
+    print(a)
+
     i += 1
 
 constraint = np.identity(len(item_list)).T if a.size == 0 else np.append(np.identity(len(item_list)), a, axis=0).T
-binpacking(constraint)
+answer = binpacking(constraint)
+
+print("# MAIN PROBLEM")
+print(constraint)
+print(answer)
 
 print("i = " + str(i))
-print("time = " + str(time.time() - start) + "[sec]")
+print("n = " + str(NumberOfItem) + ", time = " + str(time.time() - start))
