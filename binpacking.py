@@ -1,105 +1,33 @@
-import numpy as np
-import sys
-import pulp
 import time
 import random
 import argparse
-
-def binpacking_dual(B, s, a):
-    problem = pulp.LpProblem('binpacking-dual', pulp.LpMaximize)
-
-    y = np.array([])
-    for i in range(0, len(s)):
-        y = np.append(y, pulp.LpVariable('y' + str(i), 0, 1, 'Continuous'))
-    y = np.asmatrix(y.reshape(len(s), 1))
-
-    c = np.ones((1, len(s)))
-    cy = c * y
-    problem += cy[0, 0]
-
-    A = np.asarray(np.identity(len(s)))
-    if a != [[]]:
-        A = np.append(A, a, axis=0)
-    A = np.asmatrix(A)
-    Ay = A * y
-    for i in Ay:
-        problem += i[0, 0] <= 1
-
-    problem.solve()
-    ret = np.array([])
-    for i in y:
-        ret = np.append(ret, i[0, 0].value())
-
-    return np.asmatrix(ret.reshape(1, len(s)))
-
-def zero_one_knapsack(B, s, y):
-    problem = pulp.LpProblem('0-1-knapsack', pulp.LpMaximize)
-
-    a = np.array([])
-    for i in range(0, len(s)):
-        a = np.append(a, pulp.LpVariable('a' + str(i), 0, 1, 'Binary'))
-    a = np.asmatrix(a.reshape(len(s), 1))
-
-    ya = y * a
-    problem += ya[0, 0]
-
-    s = np.append([], s).reshape(1, len(s))
-    sa = s * a
-    problem += sa[0, 0] <= B
-
-    problem.solve()
-    ret = np.array([])
-    for i in a:
-        ret = np.append(ret, i[0, 0].value())
-
-    return np.asmatrix(ret.reshape(1, len(ret)))
-
-def binpacking(a):
-    problem = pulp.LpProblem('binpacking', pulp.LpMinimize)
-
-    x = np.array([])
-    for i in range(0, a[0].size):
-        x = np.append(x, pulp.LpVariable('x' + str(i), 0, 1, 'Continuous'))
-    x = np.asmatrix(x.reshape(a[0].size, 1))
-
-    c = np.ones((1, a[0].size))
-    cx = c * x
-    problem += cx[0, 0]
-
-    Ax = a * x
-    for i in Ax:
-        problem += i[0, 0] >= 1
-
-    problem.solve()
-    ret = np.array([])
-    for i in x:
-        ret = np.append(ret, i[0, 0].value())
-
-    return np.asmatrix(ret.reshape(1, a[0].size))
+import numpy as np
+from decimal import *
+from problem import binpacking_dual, zero_one_knapsack, binpacking
 
 start = time.time()
 B = 8
 s = []
-for i in range(1, 5):
+for i in range(1, 4):
     r = int(np.random.normal(4, 2))
     r = 1 if r < 1 else B if r > B else r
     s.append(r)
 
 a = np.array([[]])
 
-print("## Parameter:")
-print("Bin size: " + str(B))
-print("Item list: " + str(s))
-print("\n## Dual Problem:")
+# print("## Parameter:")
+print("Bin size = " + str(B))
+print("Item list = " + str(s))
+# print("\n## Dual Problem:")
 
 i = 1
 while True:
     y = binpacking_dual(B, s, a)
     mat = zero_one_knapsack(B, s, y)
 
-    print("### TEMP-" + str(i))
-    print("binpacking: " + str(y))
-    print("0-1 knapsack: " + str(mat))
+    print("i = " + str(i))
+    #print("binpacking: " + str(y))
+    #print("0-1 knapsack: " + str(mat))
 
     if (mat * y.T)[0, 0] > 1:
         a = np.array(mat) if i == 1 else np.append(a, mat, axis=0)
@@ -110,9 +38,9 @@ while True:
 
 constraint = np.identity(len(s)).T if a.size == 0 else np.append(np.identity(len(s)), a, axis=0).T
 
-print("\n## Main Problem:")
-print("constraint: ")
-print(constraint)
-print(binpacking(constraint))
-print("Count: " + str(i))
-print("Time: " + str(time.time() - start))
+# print("\n## Main Problem:")
+# print("constraint: ")
+# print(constraint)
+# print(binpacking(constraint))
+# print("Count: " + str(i))
+print("Time = " + str(time.time() - start) + "[sec]")
