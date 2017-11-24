@@ -1,15 +1,14 @@
 import time
-import random
-import argparse
 import numpy as np
+from random import *
 from decimal import *
 from problem import binpacking_dual, zero_one_knapsack, binpacking
 
 start = time.time()
-B = 8
+B = 100
 s = []
 for i in range(1, 4):
-    r = int(np.random.normal(4, 2))
+    r = int(normalvariate(4, 2))
     r = 1 if r < 1 else B if r > B else r
     s.append(r)
 
