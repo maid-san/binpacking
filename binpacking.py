@@ -5,24 +5,26 @@ from decimal import *
 from problem import binpacking_dual, zero_one_knapsack, binpacking
 
 start = time.time()
-B = 100
-s = []
-for i in range(1, 4):
+BinSize = 100
+NumberOfItem = 100
+
+item_list = []
+for i in range(1, NumberOfItem):
     r = int(normalvariate(4, 2))
-    r = 1 if r < 1 else B if r > B else r
-    s.append(r)
 
-a = np.array([[]])
+    r = 1 if r < 1 else BinSize if r > BinSize else r
+    item_list.append(r)
 
-print("Bin size = " + str(B))
-print("Item list = " + str(s))
+print("Bin Size: " + str(BinSize))
+print("Number of Item: " + str(NumberOfItem))
+print("Item List: " + str(item_list))
 
 i = 1
+a = np.array([[]])
 while True:
-    y = binpacking_dual(B, s, a)
-    mat = zero_one_knapsack(B, s, y)
-
     print("i = " + str(i))
+    y = binpacking_dual(BinSize, item_list, a)
+    mat = zero_one_knapsack(BinSize, item_list, y)
 
     if (mat * y.T)[0, 0] > 1:
         a = np.array(mat) if i == 1 else np.append(a, mat, axis=0)
@@ -31,5 +33,8 @@ while True:
 
     i += 1
 
-constraint = np.identity(len(s)).T if a.size == 0 else np.append(np.identity(len(s)), a, axis=0).T
+constraint = np.identity(len(item_list)).T if a.size == 0 else np.append(np.identity(len(item_list)), a, axis=0).T
+binpacking(constraint)
+
+print("i = " + str(i))
 print("Time = " + str(time.time() - start) + "[sec]")
