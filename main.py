@@ -15,8 +15,6 @@ parser.add_argument('-b', '--binsize', type=int, help='Bin Size')
 parser.add_argument('-n', '--nitem', type=int, help='Number of Item')
 args = parser.parse_args()
 
-print(args)
-
 BinSize = args.binsize
 NumberOfItem = args.nitem
 
@@ -46,4 +44,4 @@ constraint = np.identity(len(item_list)).T if a.size == 0 else np.append(np.iden
 binpacking(constraint)
 
 print("i = " + str(i))
-print("Time = " + str(time.time() - start) + "[sec]")
+print("time = " + str(time.time() - start) + "[sec]")
