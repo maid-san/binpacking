@@ -12,3 +12,4 @@ def dis_2():
         return 3
     if 3 <= p and p <= 10:
         return 6 
+    

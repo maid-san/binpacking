@@ -72,5 +72,3 @@ def binpacking(a):
         ret = np.append(ret, i[0, 0].value())
 
     return np.asmatrix(ret.reshape(1, a[0].size))
-
-
