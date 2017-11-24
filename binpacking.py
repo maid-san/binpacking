@@ -1,13 +1,23 @@
 import time
 import numpy as np
+import argparse
 from random import *
 from decimal import *
 from problem import binpacking_dual, zero_one_knapsack, binpacking
 
-seed(1998031713322)
 start = time.time()
-BinSize = 10
-NumberOfItem = 100
+
+seed(1998031713322)
+
+parser = argparse.ArgumentParser(description = 'Solver of Binpacking Problem.')
+parser.add_argument('-b', '--binsize', type=int, help='Bin Size')
+parser.add_argument('-n', '--nitem', type=int, help='Number of Item')
+args = parser.parse_args()
+
+print(args)
+
+BinSize = args.binsize
+NumberOfItem = args.nitem
 
 item_list = []
 for i in range(1, NumberOfItem):
