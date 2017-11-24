@@ -15,10 +15,8 @@ for i in range(1, 4):
 
 a = np.array([[]])
 
-# print("## Parameter:")
 print("Bin size = " + str(B))
 print("Item list = " + str(s))
-# print("\n## Dual Problem:")
 
 i = 1
 while True:
@@ -26,8 +24,6 @@ while True:
     mat = zero_one_knapsack(B, s, y)
 
     print("i = " + str(i))
-    #print("binpacking: " + str(y))
-    #print("0-1 knapsack: " + str(mat))
 
     if (mat * y.T)[0, 0] > 1:
         a = np.array(mat) if i == 1 else np.append(a, mat, axis=0)
@@ -37,10 +33,4 @@ while True:
     i += 1
 
 constraint = np.identity(len(s)).T if a.size == 0 else np.append(np.identity(len(s)), a, axis=0).T
-
-# print("\n## Main Problem:")
-# print("constraint: ")
-# print(constraint)
-# print(binpacking(constraint))
-# print("Count: " + str(i))
 print("Time = " + str(time.time() - start) + "[sec]")
