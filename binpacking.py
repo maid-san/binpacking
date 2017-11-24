@@ -4,13 +4,14 @@ from random import *
 from decimal import *
 from problem import binpacking_dual, zero_one_knapsack, binpacking
 
+seed(1998031713322)
 start = time.time()
-BinSize = 100
+BinSize = 10
 NumberOfItem = 100
 
 item_list = []
 for i in range(1, NumberOfItem):
-    r = int(normalvariate(4, 2))
+    r = int(randint(1, BinSize))
 
     r = 1 if r < 1 else BinSize if r > BinSize else r
     item_list.append(r)
@@ -22,7 +23,6 @@ print("Item List: " + str(item_list))
 i = 1
 a = np.array([[]])
 while True:
-    print("i = " + str(i))
     y = binpacking_dual(BinSize, item_list, a)
     mat = zero_one_knapsack(BinSize, item_list, y)
 
