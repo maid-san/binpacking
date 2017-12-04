@@ -29,10 +29,11 @@ ARGS = PARSER.parse_args()
 
 BIN_SIZE = ARGS.binsize
 NUMBER_OF_ITEM = ARGS.nitem
+DISTRIBUTION = ARGS.distribution
 
 ITEM_LIST = []
 for i in range(1, NUMBER_OF_ITEM + 1):
-    r = dis_2()
+    r = get_item_size(DISTRIBUTION)
     ITEM_LIST.append(r)
 
 print("Bin Size: " + str(BIN_SIZE))
