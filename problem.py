@@ -1,3 +1,4 @@
+"""This is a module solving various problems actually."""
 import numpy as np
 import pulp
 
