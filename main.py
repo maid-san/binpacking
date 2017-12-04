@@ -17,7 +17,7 @@ def get_item_size(dis):
     if dis == 2:
         return dis_2()
     else:
-        raise IndexError
+        raise IndexError("-d(--distribution) の値が不正です")
 
 START = time.time()
 random.seed(1998031713322)
