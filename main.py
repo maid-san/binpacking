@@ -5,17 +5,19 @@ import time
 import random
 import argparse
 import numpy as np
-from distribution import dis_1, dis_2
+from distribution import dis_1, dis_2, dis_3
 from problem import binpacking_dual, zero_one_knapsack, binpacking
 
-def get_item_size(dis):
+def get_item_size(dis, size):
     """
     This is a function returning size of an item.
     """
     if dis == 1:
-        return dis_1()
+        return dis_1(size)
     if dis == 2:
         return dis_2()
+    if dis == 3:
+        return dis_3(size)
     else:
         raise IndexError("-d(--distribution) の値が不正です")
 
@@ -33,7 +35,7 @@ DISTRIBUTION = ARGS.distribution
 
 ITEM_LIST = []
 for i in range(1, NUMBER_OF_ITEM + 1):
-    r = get_item_size(DISTRIBUTION)
+    r = get_item_size(DISTRIBUTION, BIN_SIZE)
     ITEM_LIST.append(r)
 
 print("Bin Size: " + str(BIN_SIZE))

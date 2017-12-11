@@ -1,11 +1,11 @@
 """This is a module about distribution of items."""
 import random
 
-def dis_1():
+def dis_1(size):
     """
-    1〜10までのアイテムをランダムに返します。
+    1〜sizeまでのアイテムをランダムに返します。
     """
-    return random.randint(1, 10)
+    return random.randint(1, size)
 
 def dis_2():
     """
@@ -19,4 +19,9 @@ def dis_2():
         return 3
     if 3 <= prob and prob <= 10:
         return 6 
-    
+
+def dis_3(size):
+    """
+    常にサイズ size のアイテムを返します。
+    """
+    return size
