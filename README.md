@@ -1,6 +1,8 @@
 ## Install and How to run
-    pip install -r pip.txt
-    python -b <bin_size> -n <number_of_item> -d <distribution_id> 
+    ```bash
+    $ pip install -r pip.txt
+    $ python -b <bin_size> -n <number_of_item> -d <distribution_id> 
+    ```
 
 ## ファイル構成
 - main.py
