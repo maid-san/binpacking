@@ -14,7 +14,7 @@ $ python -b <bin_size> -n <number_of_item> -d <distribution_id>
     + アイテムの分布を決める関数が定義されています。
 
 ## 実行時
-- サイズ bin_size のビンに 1〜bin_size までのアイテムを numver_of_item 個を詰めることを考えるビンパッキング問題を解きます。
+- サイズ bin_size のビンに distribution_id に対応する分布で生成されたアイテムを numver_of_item 個詰めることを考えるビンパッキング問題を解きます。
 - アイテムサイズを増やしながら実行したい場合、main.sh や main.fish を利用すると便利です。
     - seq コマンドの引数やリダイレクト先を調整して実行してください。
 
