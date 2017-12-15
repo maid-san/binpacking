@@ -5,7 +5,7 @@ import time
 import random
 import argparse
 import numpy as np
-from distribution import dis_1, dis_2, dis_3, dis_4, dis_5
+from distribution import dis_1, dis_2, dis_3, dis_4, dis_5, dis_6
 from problem import binpacking_dual, zero_one_knapsack, binpacking
 
 def get_item_size(dis, size):
@@ -22,6 +22,8 @@ def get_item_size(dis, size):
         return dis_4()
     if dis == 5:
         return dis_5()
+    if dis == 6:
+        return dis_6()
     else:
         raise IndexError("-d(--distribution) の値が不正です")
 
