@@ -34,6 +34,10 @@ def get_item_size(dis, size):
         return dis_10()
     if dis == 11:
         return dis_11()
+    if dis == 12:
+        return dis_12()
+    if dis == 13:
+        return dis_13()
     else:
         raise IndexError("-d(--distribution) の値が不正です")
 
