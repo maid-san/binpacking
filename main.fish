@@ -1,7 +1,7 @@
 set bin_size 10
 set n_max 5000
-set dis 5
+set dis 6
 
 for n in (seq -w 100 100 $n_max)
-    python main.py -n $n -b $bin_size -d $dis | tee /dev/stderr | tail -n 1 >> output5.txt
+    python main.py -n $n -b $bin_size -d $dis | tee /dev/stderr | tail -n 1 >> output6.txt
 end

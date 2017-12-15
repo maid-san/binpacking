@@ -18,7 +18,7 @@ def dis_2():
     if 2 <= prob and prob < 3:
         return 3
     if 3 <= prob and prob <= 10:
-        return 6 
+        return 6
 
 def dis_3(size):
     """
@@ -45,11 +45,11 @@ def dis_5():
     """
     prob = random.randint(1, 100)
 
-    if 1 <= prob and prob < 5:
+    if 1 <= prob and prob <= 5:
         return 1
-    if 5 <= prob and prob < 15:
+    if 6 <= prob and prob <= 15:
         return 3
-    if 15 <= prob and prob <= 100:
+    if 16 <= prob and prob <= 100:
         return 8
 
 def dis_6():
@@ -58,9 +58,9 @@ def dis_6():
     """
     prob = random.randint(1, 10)
 
-    if 1 <= prob and prob < 3:
+    if 1 <= prob and prob <= 2:
         return 1
-    if 3 <= prob and prob < 5:
+    if 3 <= prob and prob <= 4:
         return 3
     if 5 <= prob and prob <= 10:
         return 6
