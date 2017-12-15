@@ -65,4 +65,37 @@ def dis_6():
     if 5 <= prob and prob <= 10:
         return 6
 
+def dis_7():
+    """
+    20%: 1, 20%: 3, 60%: 8 の確率でアイテムをそれぞれ返します。
+    """
+    prob = random.randint(1, 10)
 
+    if 1 <= prob and prob <= 2:
+        return 1
+    if 3 <= prob and prob <= 4:
+        return 3
+    if 5 <= prob and prob <= 10:
+        return 8
+
+def dis_8():
+    """
+    20%: 2, 80%: 8 の確率でアイテムをそれぞれ返します。
+    """
+    prob = random.randint(1, 10)
+
+    if 1 <= prob and prob <= 2:
+        return 2
+    if 3 <= prob and prob <= 10:
+        return 8
+
+def dis_9():
+    """
+    40%: 2, 60%: 8 の確率でアイテムをそれぞれ返します。
+    """
+    prob = random.randint(1, 10)
+
+    if 1 <= prob and prob <= 4:
+        return 2
+    if 5 <= prob and prob <= 10:
+        return 8
