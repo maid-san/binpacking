@@ -121,3 +121,28 @@ def dis_11():
         return 2
     if 5 <= prob and prob <= 10:
         return 6
+
+def dis_12():
+    """
+    20%: 4, 80%: 6 の確率でアイテムをそれぞれ返します。
+    """
+
+    prob = random.randint(1, 10)
+
+    if 1 <= prob and prob <= 2:
+        return 4
+    if 3 <= prob and prob <= 10:
+        return 6
+
+def dis_13():
+    """
+    40%: 4, 60%: 6 の確率でアイテムをそれぞれ返します。
+    """
+
+    prob = random.randint(1, 10)
+
+    if 1 <= prob and prob <= 4:
+        return 4
+    if 5 <= prob and prob <= 10:
+        return 6
+
