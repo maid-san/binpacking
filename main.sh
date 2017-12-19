@@ -9,16 +9,17 @@ exec_python () {
     done
 }
 
-exec_python 10 700 5000 1 &
-exec_python 10 1300 5000 2 &
-exec_python 10 1300 5000 4 &
-exec_python 10 1600 5000 5 &
-exec_python 10 1000 5000 6 &
-exec_python 10 1000 5000 7 &
-exec_python 10 500 5000 8 &
-exec_python 10 300 5000 9 &
+exec_python 10 100 2500 2 &
+exec_python 10 100 2500 4 &
+exec_python 10 100 2500 5 &
+exec_python 10 100 2500 8 &
+exec_python 10 100 2500 10 &
+exec_python 10 100 2500 12 &
+exec_python 10 100 2500 3 &
 wait
-exec_python 10 1300 5000 10 &
-exec_python 10 1000 5000 11 &
-exec_python 10 500 5000 12 &
-exec_python 10 300 5000 13 &
+exec_python 10 100 2500 1 &
+exec_python 10 100 2500 6 &
+exec_python 10 100 2500 7 &
+exec_python 10 100 2500 9 &
+exec_python 10 100 2500 11 &
+exec_python 10 100 2500 13 &
