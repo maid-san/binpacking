@@ -17,6 +17,7 @@ exec_python 10 1000 5000 6 &
 exec_python 10 1000 5000 7 &
 exec_python 10 500 5000 8 &
 exec_python 10 300 5000 9 &
+wait
 exec_python 10 1300 5000 10 &
 exec_python 10 1000 5000 11 &
 exec_python 10 500 5000 12 &
