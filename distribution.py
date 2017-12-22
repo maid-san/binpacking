@@ -146,3 +146,10 @@ def dis_13():
     if 5 <= prob and prob <= 10:
         return 6
 
+def dis_14():
+    prob = random.randint(1, 10)
+
+    if prob <= 5:
+        return 1
+    else:
+        return 2

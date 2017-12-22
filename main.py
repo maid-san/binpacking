@@ -38,6 +38,8 @@ def get_item_size(dis, size):
         return dis_12()
     if dis == 13:
         return dis_13()
+    if dis == 14:
+        return dis_14()
     else:
         raise IndexError("-d(--distribution) の値が不正です")
 
